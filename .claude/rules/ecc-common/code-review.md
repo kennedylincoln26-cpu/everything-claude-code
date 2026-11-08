@@ -59,16 +59,14 @@ Before marking code complete:
 
 ## Agent Usage
 
-Use these agents for code review:
+Use these for code review in this project:
 
-| Agent | Purpose |
+| Tool | Purpose |
 |-------|---------|
-| **code-reviewer** | General code quality, patterns, best practices |
-| **security-reviewer** | Security vulnerabilities, OWASP Top 10 |
-| **typescript-reviewer** | TypeScript/JavaScript specific issues |
-| **python-reviewer** | Python specific issues |
-| **go-reviewer** | Go specific issues |
-| **rust-reviewer** | Rust specific issues |
+| **requesting-code-review** skill | General code quality, patterns, best practices |
+| **security-reviewer** agent | Security vulnerabilities, OWASP Top 10 |
+| **typescript-reviewer** agent | TypeScript/JavaScript specific issues |
+| **python-reviewer** agent | Python specific issues |
 
 ## Review Workflow
 
@@ -118,7 +116,6 @@ Use these agents for code review:
 
 This rule works with:
 
-- [testing.md](testing.md) - Test coverage requirements
 - [security.md](security.md) - Security checklist
 - [git-workflow.md](git-workflow.md) - Commit standards
-- [agents.md](agents.md) - Agent delegation
+- [escolha-de-ferramentas.md](../escolha-de-ferramentas.md) - Which tool to use for each task
