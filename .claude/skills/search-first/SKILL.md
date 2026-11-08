@@ -127,10 +127,10 @@ tool name exposed by the active harness.
 
 ## Integration Points
 
-### With planner agent
-The planner should invoke researcher before Phase 1 (Architecture Review):
-- Researcher identifies available tools
-- Planner incorporates them into the implementation plan
+### With the writing-plans skill
+Run this search before writing the plan:
+- Research identifies available tools
+- The plan incorporates them
 - Avoids "reinventing the wheel" in the plan
 
 ### With architect agent
