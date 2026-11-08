@@ -110,7 +110,7 @@ If you find a CRITICAL vulnerability:
 
 ## Reference
 
-For detailed vulnerability patterns, code examples, report templates, and PR review templates, see skill: `security-review`.
+For the project's mandatory security checklist, see `rules/ecc-common/security.md`. To review the pending changes on a branch, use the built-in `/security-review` command.
 
 ---
 
