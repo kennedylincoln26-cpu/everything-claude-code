@@ -31,6 +31,11 @@ build-error-resolver, e2e-runner, refactor-cleaner, typescript-reviewer, python-
 tdd-workflow, verification-loop, security-review, coding-standards,
 e2e-testing, search-first, api-design
 
+Skill própria deste fork (não existe no ECC original, não sobrescreva ao atualizar):
+
+- `futuristic-luxury-design` — visual futurista e de luxo para sites, apps e dashboards.
+  Peça: "use a skill futuristic-luxury-design nesta página".
+
 ## Regras sempre ativas
 
 `rules/ecc-common/` — estilo de código, segurança, testes, git, performance e padrões.
