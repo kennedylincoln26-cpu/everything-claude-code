@@ -1,20 +1,41 @@
-# Escolha de ferramentas: Superpowers + ECC
+# Escolha de ferramentas: Superpowers + ECC + Karpathy
 
-Este projeto junta dois kits, sem duplicatas. O **Superpowers** cuida do
-*processo* (entender, planejar, executar, depurar, verificar). O **ECC** cuida
-das *ferramentas específicas* (linguagem, build, segurança, design). Escolha
-pela tarefa, sem cerimônia desnecessária.
+Este projeto junta três kits, sem duplicatas:
+
+- **Karpathy** (`karpathy-guidelines.md`): o comportamento base, em toda
+  tarefa. Pensar antes de codar, simplicidade, mudanças cirúrgicas e objetivos
+  verificáveis.
+- **Superpowers**: o *processo* (entender, planejar, executar, depurar,
+  verificar).
+- **ECC**: as *ferramentas específicas* (linguagem, build, segurança, design).
+
+Escolha pela tarefa, sem cerimônia desnecessária.
 
 ## Regra geral
 
-1. **Tarefa pequena e clara** (trocar um texto, renomear algo, ajuste de uma
-   linha): faça direto. Não abra brainstorming nem plano.
-2. **Ideia nova ou vaga**: comece por `brainstorming`.
-3. **Trabalho com várias etapas**: `writing-plans`, depois `executing-plans`
-   (sessão única) ou `subagent-driven-development` (tarefas independentes).
-4. **Ferramenta específica** (revisor da linguagem, build, segurança, design):
+1. **Tarefa trivial** (trocar um texto, renomear algo, ajuste de uma linha):
+   faça direto. Não abra brainstorming nem plano.
+2. **Tarefa média** (poucos passos, pedido claro): plano curto no próprio chat,
+   no formato `passo → verificar` (princípio 4 do Karpathy). Sem `writing-plans`.
+3. **Ideia nova ou vaga**: comece por `brainstorming`.
+4. **Trabalho grande, com várias etapas**: `writing-plans`, depois
+   `executing-plans` (sessão única) ou `subagent-driven-development` (tarefas
+   independentes).
+5. **Ferramenta específica** (revisor da linguagem, build, segurança, design):
    use a do ECC.
-5. Se o usuário chamar um comando ou skill pelo nome, use o que ele pediu.
+6. Se o usuário chamar um comando ou skill pelo nome, use o que ele pediu.
+
+## Quando as regras se chocam
+
+- **Estilo ao editar código existente**: siga o estilo do arquivo e mexa só no
+  que foi pedido (Karpathy), mesmo que `ecc-common/coding-style.md` prefira
+  outro jeito. As regras de estilo do ECC valem para código novo.
+- **Código morto que já existia**: avise, não apague. Apague só quando o
+  usuário pedir, por exemplo com `/refactor-clean`.
+- **Tratamento de erros**: trate os erros que podem acontecer de verdade (ECC),
+  mas não crie tratamento para cenários impossíveis (Karpathy).
+- **Projetos-esqueleto** (`ecc-common/patterns.md`): só ao começar um projeto do
+  zero, nunca para uma mudança pequena em projeto existente.
 
 ## Tabela de decisão
 

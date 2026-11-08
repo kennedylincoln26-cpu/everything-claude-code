@@ -1,17 +1,34 @@
-# Kit Superpowers + ECC (celular, navegador e PC)
+# Kit Superpowers + ECC + Karpathy (celular, navegador e PC)
 
-Esta pasta faz o Claude Code carregar dois kits juntos em qualquer sessão aberta
+Esta pasta faz o Claude Code carregar três kits juntos em qualquer sessão aberta
 neste repositório, inclusive pelo app do celular ou claude.ai/code, sem instalar
 nada.
 
+- **Karpathy** (comportamento base): pensar antes de codar, código simples,
+  mudar só o que foi pedido e definir como verificar que deu certo.
 - **Superpowers** (processo): entender o pedido, planejar, executar, depurar e
   verificar.
 - **ECC** (ferramentas específicas): revisores por linguagem, build, segurança,
   design e testes E2E.
 
 Funções duplicadas foram removidas: cada tarefa tem uma única ferramenta. A regra
-`rules/escolha-de-ferramentas.md` diz ao Claude qual usar em cada situação, então
-você não precisa escolher.
+`rules/escolha-de-ferramentas.md` diz ao Claude qual usar em cada situação e quem
+vale quando duas regras se chocam, então você não precisa escolher.
+
+## Karpathy (regra sempre ativa)
+
+`rules/karpathy-guidelines.md`, com 4 princípios:
+
+1. **Pensar antes de codar**: dizer as suposições e perguntar quando o pedido
+   tiver mais de um sentido.
+2. **Simplicidade**: o mínimo de código que resolve, nada "para o futuro".
+3. **Mudanças cirúrgicas**: mexer só no que foi pedido, sem "melhorar" o resto.
+4. **Execução por objetivo**: transformar o pedido em algo verificável (por
+   exemplo, um teste) e repetir até passar.
+
+Origem: [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills),
+pelo seu fork `kennedylincoln26-cpu/andrej-karpathy-skills` (commit `2c60614`),
+licença MIT. É uma regra, não uma skill: vale em toda tarefa, sem precisar chamar.
 
 ## Superpowers (skills)
 
@@ -76,10 +93,15 @@ revisão de código, git e padrões.
 
 - **ECC:** copie de novo os arquivos das pastas da raiz (`commands/`, `agents/`,
   `skills/`, `rules/common/`), **só os que estão listados acima**. Não traga de
-  volta os removidos.
+  volta os removidos. Depois, refaça os ajustes de links em
+  `rules/ecc-common/code-review.md`, `rules/ecc-common/git-workflow.md`,
+  `agents/build-error-resolver.md` e `skills/search-first/SKILL.md`, que apontam
+  para as ferramentas do Superpowers no lugar das removidas.
 - **Superpowers:** baixe a versão nova de obra/superpowers, copie as pastas de
   `skills/` (menos `using-superpowers` e `diagnosing-superpowers`) e troque
   `superpowers:<nome>` por `<nome>` nos arquivos.
+- **Karpathy:** copie de novo o `CLAUDE.md` do repositório para
+  `rules/karpathy-guidelines.md`, mantendo o cabeçalho de origem no topo.
 
 ## Limitações
 
