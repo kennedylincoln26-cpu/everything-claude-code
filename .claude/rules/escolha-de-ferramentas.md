@@ -45,6 +45,12 @@ Escolha pela tarefa, sem cerimônia desnecessária.
 - **Direção visual**: se o usuário pedir luxo, premium ou futurista,
   `futuristic-luxury-design` define a direção e `frontend-design` só ajuda na
   execução. Nos outros casos, `frontend-design` escolhe a direção.
+- **Karpathy x `ponytail`**: o Karpathy é o comportamento base. Use o
+  `ponytail` só quando o usuário pedir ("ponytail", "be lazy", `/ponytail`),
+  mesmo que a descrição dele diga "qualquer tarefa de código".
+- **Pesquisa na internet**: use primeiro a busca e a leitura normais. Use o
+  `agent-reach` só quando elas falharem ou o conteúdo exigir a rede social
+  (comentários, legendas, posts).
 - **Skills da conta com a mesma função** (por exemplo `engineering:code-review`,
   `engineering:debug`, `engineering:architecture`, `engineering:system-design`,
   `engineering:testing-strategy`, `design:design-system`): use a da tabela
@@ -66,6 +72,10 @@ Escolha pela tarefa, sem cerimônia desnecessária.
 | Revisar um PR do GitHub ou o diff atual | `/code-review` (do Claude Code) |
 | Receber e aplicar comentários de revisão | `receiving-code-review` |
 | Revisão por linguagem | agentes `typescript-reviewer`, `python-reviewer` |
+| Checar se uma skill ou plugin é seguro antes de instalar | `skill-inspector` |
+| Ler Reddit, YouTube, X e outras redes quando a busca normal falha | `agent-reach` |
+| Vídeo animado feito em código | `animate` |
+| Usuário pede o modo "preguiçoso" / menor solução | `ponytail` (lista de atalhos: `ponytail-debt`) |
 | Escrever código sensível (login, dados, pagamentos, APIs) | agente `security-reviewer` + regra `ecc-common/security.md` |
 | Revisão de segurança das mudanças do branch | `/security-review` (do Claude Code) |
 | Decisão de arquitetura | agente `architect` |

@@ -103,6 +103,47 @@ de [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plu
 | `/commit-push-pr` | Commit, push e Pull Request de uma vez (no PC precisa do GitHub CLI `gh`) |
 | `/clean_gone` | Apaga branches locais que já foram apagados no GitHub |
 
+## Terceiros (revisados antes de entrar)
+
+Skills de outros autores. Cada uma passou por revisão manual do código antes de
+entrar: rede, comandos, arquivos, credenciais e caracteres escondidos. A
+licença está dentro de cada pasta.
+
+| Skill | Para quê | Origem |
+|---|---|---|
+| `skill-inspector` | Checar se uma skill ou plugin é seguro **antes** de instalar | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) (commit `919aa4b`, Apache 2.0) |
+| `animate` | Vídeos animados feitos em código, com 7 estilos prontos ou um estilo novo a partir das suas referências | [cth9191/animate](https://github.com/cth9191/animate) (commit `7e5eb56`, MIT) |
+| `ponytail` / `ponytail-debt` | Modo "dev sênior preguiçoso" (a menor mudança que resolve) e a lista dos atalhos marcados com `shortcut:` | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) (commit `96608e0`, MIT) |
+| `agent-reach` | Ler Reddit, YouTube, X, GitHub e outras redes quando a busca normal não basta | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) v1.6.1 (commit `c70ae6d`, MIT) |
+
+O que cada uma precisa e o que ficou de fora:
+
+- **`skill-inspector`:** funciona sem instalar nada (faz a revisão lendo o
+  código). Com o programa `skillspector` instalado no PC, faz também a varredura
+  automática: `uv tool install git+https://github.com/NVIDIA/skillspector.git`.
+- **`animate`:** precisa de Node 18+, Playwright com Chromium e ffmpeg. Narração é
+  opcional (Python com `faster-whisper`). Usa só programas da máquina, sem rede.
+- **`ponytail`:** entraram só as skills. Os hooks ficaram de fora: rodavam a cada
+  mensagem, gravavam um CSV em `~/.config/ponytail/` e podiam enviar dados para um
+  webhook. `ponytail-review` e `ponytail-audit` também ficaram de fora, porque
+  repetem o `/code-review`. O Karpathy continua sendo a regra base. O `ponytail`
+  só entra quando você pede (veja `rules/escolha-de-ferramentas.md`).
+- **`agent-reach`:** a skill só funciona com o programa `agent-reach` instalado
+  no PC (Python). **Atenção:** ele copia automaticamente o login do site a partir
+  do seu Chrome (se conectado à extensão OpenCLI), usa um navegador próprio
+  feito para não ser detectado como robô e baixa instaladores (`uv`, Node).
+  X e Reddit pedem login, e o Reddit costuma bloquear servidores na nuvem. O
+  `SKILL.md` é a versão em inglês, com a tabela de canais trocada por
+  `agent-reach channels` (no original, ela é gerada na instalação).
+
+**Não instalado: FreeLLMAPI** ([tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi)).
+Não é um plugin. É um servidor que junta as cotas grátis de outros provedores
+(Groq, Gemini etc.) e se passa pela API da Anthropic. Com ele, o Claude Code passa
+a rodar com esses modelos **no lugar do Claude**, e o seu código vai para esses
+provedores. Se mesmo assim quiser testar, rode no seu PC e siga o README do
+projeto (`npx freellmapi launch`). O "mais de 7 bilhões de tokens" do vídeo não
+bate com o README, que fala em cerca de 4 bilhões por mês.
+
 ## Já vem pronto (não precisa de nada aqui)
 
 - **No Claude Code:** `/code-review` (revisão de PR ou do diff),
@@ -156,6 +197,10 @@ exemplo: `/plugin install security-guidance@claude-plugins-official`.
 - **Anthropic:** copie de novo as 6 pastas listadas de `anthropics/skills` e os 3
   comandos de `plugins/commit-commands/commands/` de
   `anthropics/claude-plugins-official`.
+- **Terceiros:** antes de atualizar, rode o `skill-inspector` na versão nova.
+  Copie as mesmas pastas listadas em "Terceiros". No `agent-reach`, use o
+  `agent_reach/skill/SKILL_en.md` e troque `{{VERSION}}` e `{{CHANNEL_TABLE}}`
+  como na versão atual.
 
 ## Limitações
 
