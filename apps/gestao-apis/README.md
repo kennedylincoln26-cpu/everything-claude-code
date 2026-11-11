@@ -14,6 +14,10 @@ npm start
 
 Abra `http://localhost:4317`. O app só escuta em `localhost`. Para mudar a porta, use `PORT`. O banco fica em `dados.sqlite` (ou no caminho de `GESTAO_DB`).
 
+## No Windows, com clique duplo
+
+Dê dois cliques em `iniciar.bat`. Na primeira vez ele pede as chaves e as guarda nas variáveis de ambiente do seu usuário (`setx`); depois só inicia o app e abre o navegador. Para trocar uma chave, rode `setx XAI_API_KEY "nova"` (ou `ANTHROPIC_API_KEY`) e abra o atalho de novo.
+
 ## Testes
 
 ```bash
