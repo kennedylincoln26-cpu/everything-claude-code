@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestão de APIs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <span class="marca">GESTÃO DE APIS</span>
+    <nav id="abas">
+      <button data-tela="painel" class="ativa">Painel</button>
+      <button data-tela="console">Console</button>
+      <button data-tela="historico">Histórico</button>
+      <button data-tela="prompts">Prompts</button>
+      <button data-tela="config">Configurações</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="painel" class="tela ativa">
+      <div class="topo">
+        <h1>Painel</h1>
+        <button id="atualizar-todos">Atualizar todos</button>
+      </div>
+      <div id="cartoes" class="grade"></div>
+    </section>
+
+    <section id="console" class="tela">
+      <h1>Console</h1>
+      <div class="linha">
+        <label>Tipo de tarefa
+          <select id="tipo"><option value="padrao">padrão</option><option value="roteiro">roteiro</option><option value="revisao">revisão</option></select>
+        </label>
+        <label>Provedor
+          <select id="provedor"><option value="auto">auto</option><option value="grok">Grok</option><option value="claude">Claude</option></select>
+        </label>
+        <label>Prompt salvo
+          <select id="prompt-salvo"><option value="">nenhum</option></select>
+        </label>
+      </div>
+      <textarea id="prompt" rows="7" placeholder="Escreva o pedido…"></textarea>
+      <button id="enviar" class="primario">Enviar</button>
+      <div id="resultado" class="cartao oculto">
+        <div id="meta" class="mono suave"></div>
+        <pre id="resposta"></pre>
+      </div>
+    </section>
+
+    <section id="historico" class="tela">
+      <div class="topo">
+        <h1>Histórico</h1>
+        <div class="linha">
+          <select id="f-provedor"><option value="">todos</option><option value="grok">Grok</option><option value="claude">Claude</option></select>
+          <select id="f-status"><option value="">todos</option><option value="ok">ok</option><option value="erro">erro</option></select>
+          <button id="exportar">Exportar JSON</button>
+        </div>
+      </div>
+      <div id="lista-historico"></div>
+    </section>
+
+    <section id="prompts" class="tela">
+      <h1>Prompts</h1>
+      <div class="cartao">
+        <input id="p-nome" placeholder="Nome do prompt">
+        <textarea id="p-conteudo" rows="5" placeholder="Conteúdo"></textarea>
+        <button id="p-salvar" class="primario">Salvar nova versão</button>
+      </div>
+      <div id="lista-prompts"></div>
+    </section>
+
+    <section id="config" class="tela">
+      <h1>Configurações</h1>
+      <p class="suave">Regras do orquestrador em JSON. Cada salvamento cria uma nova versão. As chaves ficam só nas variáveis de ambiente.</p>
+      <textarea id="c-texto" rows="18" class="mono"></textarea>
+      <button id="c-salvar" class="primario">Salvar nova versão</button>
+      <div id="lista-config"></div>
+    </section>
+  </main>
+  <div id="aviso" class="oculto"></div>
+  <script src="app.js"></script>
+</body>
+</html>
