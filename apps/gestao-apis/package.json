@@ -1,0 +1,12 @@
+{
+  "name": "gestao-apis",
+  "version": "2.0.0",
+  "private": true,
+  "description": "App pessoal para gerenciar Grok (xAI) e Claude (Anthropic) num só lugar",
+  "main": "src/server.js",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node --no-warnings src/server.js",
+    "test": "node --no-warnings --test tests/*.test.js"
+  }
+}
